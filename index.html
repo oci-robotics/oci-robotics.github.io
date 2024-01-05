@@ -187,116 +187,26 @@
         <p class="text-justify">
             The example of Franka Kitchen for five tasks on two camera views.
         </p>
+        <image src="img/example_franka.png" width="100%" height="auto">
+
         <p class="text-justify">
-            We compare our model with R3M, which is the state-of-the-art method and widely applicable method in Franka Kitchen. We also compare with BLIP-2, a SOTA vision-language model. We replace our MLLM with BLIP-2 in our method and retain the FRM(Feature Reuse Module).And results are shown in the following image.
+            We compare our model with R3M, which is the state-of-the-art method and widely applicable method in Franka Kitchen. We also compare with BLIP-2, a SOTA vision-language model. We replace our MLLM with BLIP-2 in our method and retain the FRM(Feature Reuse Module).And results are shown in the following figure.
         </p>
-
-
-        <div class="text-center">
-                    <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                       <source src="img/im_demo1_an.mp4" type="video/mp4">
-                   </video>
-                </div>
+        <image src="img/result_franka.png" width="100%" height="auto">
 
 
         <h4>
-            Real-World Tabletop Rearrangement
+            Real-World Environment
         </h4>
          <p class="text-justify">
-            We demonstrate another implementation of Inner Monologue in a real-world tabletop environment, where perceptual models may be subject to occlusions.
-            We leverage passive scene description (implemented as object recognition) and success detection feedbacks.
-            Given the list of visible and occluded objects and success detection results, we show this enables Inner Monologue to complete tasks like "stack all the blocks" and "put bottles and fruits in different plates", even under considerable perturbations to the primitive policy.
+            We use the Franka robot with a 7-degree of freedom arm, which is equipped with a parallel jaw gripper (see following figure, left). Our workspace boasts two high-quality D435i RealSense RGBD cameras. We only use the RGB information in our experiments.
+            The real robot setup is on the left and examples of tasks are on the right.
         </p>
-
-        <div class="text-center">
-                    <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                       <source src="img/im_demo2_an.mp4" type="video/mp4">
-                   </video>
-                </div>
-
-        <h4>
-            Real-World Mobile Manipulation
-        </h4>
+        <image src="img/example_real.png" width="100%" height="auto">
         <p class="text-justify">
-            <!-- In the real kitchen mobile manipulation rearrangement domain, we show that the robot is also successful replan based on success detection results, despite adversarial human intervention. -->
-            The method is also amenable to complex realistic household tasks given wide range of skills outside of pick-and-place. In the video below, we leverage success detection feedback. Although natural failures are already prone to occur in such settings, we use adversarial human interventions to force policy failures in order to demonstrate the replanning capability of Inner Monologue. We show that LLMs can effectively replan if the current or previous plan steps failed. This allows the robot to recover from failures and complete complex tasks like "put a coke in the top drawer", as shown in the video below.
+            Results from real-world experiments.In this study, we progressively removed the relative position (denoted as “w/o rel-pos”) and the absolute position (denoted as “w/o abs-pos”).
         </p>
-
-        <div class="text-center">
-                    <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                       <source src="img/im_demo3_an.mp4" type="video/mp4">
-                   </video>
-                </div>
-
-        <h3>
-            Emergent Capabilities
-        </h3>
-        <p class="text-justify">
-            Although LLMs can generate fluent continuations from the prompted examples, we surprisingly find that when informed with environment feedback, Inner Monologue demonstrates many impressive reasoning and replanning behaviors beyond the examples given in the prompt. Using a pre-trained LLM as the backbone, the method also inherits many of the appealing properties from its versatility and general-purpose languageunderstanding. In this section, we demonstrate a few of these emergent capabilities.
-        </p>
-        
-        <h4>Continued Adaptation to New Instructions</h4>
-        <p class="text-justify">
-            Although not explicitly prompted, the LLM planner can react to human interaction that changes the high-level goal mid-task.  Below we show a challenging case, where <i>Human</i> feedback changes the goal during the plan execution, and then changes the goal yet again by saying “finish the previous task”. We can see that the planner incorporates the feedback correctly by switching tasks twice.  In another instance, despite not being explicitly prompted to terminate after a human says “please stop”, the LLM planner generalizes to this scenario and predicts a “done” action.
-        </p>
-        <div class="text-center">
-            <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                <source src="img/im_demo4_an.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <h4>Self-Proposing Goals under Infeasibility</h4>
-        <p class="text-justify">
-            Instead of mindlessly following human-given instructions, Inner Monologue can also act as an interactive problem solver by proposing alternative goals to atempt when the previous goal becomes infeasible.  Below, to solve the task “put any two blocks inside the purple bowl”, Inner Monologue first attempts an action of picking up the purple block – the action fails as the purple block is intentionally made to be too heavy for the robot. After a hint “the purple block is too heavy”, it proposes to “find a lighter block” and successfully solves the task in the end.
-        </p>
-        <div class="text-center">
-            <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                <source src="img/emergent_spontaneous.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <h4>Multilingual Interaction</h4>
-        <p class="text-justify">
-            Pre-trained LLMs are known to be able to translate from one language to another, without any finetuning. We observe that such multilingual understanding also transfers to the embodied settings considered in this work. Specifically, the human-provided new instruction is written in Chinese, but the LLM can correctly interpret it, re-narrate it as a concrete goal to execute in English, and accordingly replan its future actions. Occasionally, we find that this capability even extends to symbols and emojis.
-        </p>
-        <div class="text-center">
-            <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                <source src="img/emergent_multilingual.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <h4>Interactive Scene Understanding</h4>
-        <p class="text-justify">
-            We also observe that Inner Monologue demonstrates interactive understanding of the scene using the past actions and environment feedback as context.  Below, after a task instruction has been executed, we turn to ask questions about the scene, again a structure that has not appeared in the prompt.  Surprisingly, we find that it can often correctly answer these questions that require temporal and embodied reasoning.
-        </p>
-        <div class="text-center">
-            <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                <source src="img/emergent_scene.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <h4>Robustness to Feedback Order</h4>
-        <p class="text-justify">
-            So far we prompted the language model following certain conventions. For instance, in the simulated tabletop domain, the convention is [Robot action, Scene, and Robot thought]. In practice, we find that the LLM planner is robust to occasionallys wapping the order of feedback.  In one example, a new human instruction is injected in the middle of plan execution, but this structure has not been seen in the example prompts. Nonetheless, the planner recognizes the change and generates a new “Robot thought: Goal state is. . . ” statement allowing it to solve the new task.
-        </p>
-        <div class="text-center">
-            <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                <source src="img/emergent_feedback_order.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <h4>Robustness to Typos</h4>
-        <p class="text-justify">
-            Inherited from the LLM backbone, our approach is also robust to typos in human instruction.
-        </p>
-        <div class="text-center">
-            <video id="v0" width="100%" playsinline loop controls autoplay muted>
-                <source src="img/emergent_typos.mp4" type="video/mp4">
-            </video>
-        </div>
-
-	    </div>
-        </div>
+        <image src="img/result_real.png" width="100%" height="auto">
             
      <div class="col-md-8 col-md-offset-2">
                 <h3>
