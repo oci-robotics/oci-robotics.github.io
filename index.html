@@ -158,14 +158,17 @@
                     visual representation from human videos. CLIPort and MOO, which integrate pre-trained VLMs into end-to-end visuomotor manipulation policies. 
                      RT-2 develop an end-to-end framework that outputs actions with images and instructions directly.<br>
                     Unlike prior applications of foundational models to down- stream tasks like planning and navigation, our goal is to enhance language 
-                    instructions to boost the generalizability of robotic manipulation, emphasizing positional cues for objects in text structure.
+                    instructions to boost the generalizability of robotic manipulation, emphasizing positional cues for objects in text structure.There are two key 
+                    components to our OCI framework: 1) a fine-tuned MLLM that is adept at comprehending language and the environment, with the ability to 
+                    correlate an object’s location to its identity, and 2) a feature reuse mechanism that leverages the features embedding from MLLM to 
+                    improve policy learning. The following section will address these two challenges in detail.
 
               <div class="text-center">
-                    <video id="v0" width="100%" playsinline loop controls muted autoplay>
-                        <source src="img/method.mp4" type="video/mp4">
-                   </video>
-                </div>
+                <image src="img/oci-framework.png" width="100%">
 
+                </a>
+                </div>
+            
 
             </div>
         </div>
