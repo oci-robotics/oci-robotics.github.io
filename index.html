@@ -66,8 +66,8 @@
                 <br>
 
 <li>Junjie Wen<sup>1,*</sup></li> <li>Yichen Zhu</sup>2,*<sup></li> <li>Minjie Zhu<sup>1</sup></li> <li>Jinming Li<sup>3</sup></li> <li>Zhiyuan Xu<sup>2</sup></li> 
-<li>Zhengping Che<sup>2</sup></li> <br><br><li>Chaomin Shen<sup>1,&commat</sup></li> <li>Yaxin Peng<sup>3</sup></li><li>Dong Liu<sup>2</sup></li> <li>Feifei Feng<sup>2</sup></li> 
-<li>and Jian Tang<sup>2,&commat</sup></li> 
+<li>Zhengping Che<sup>2</sup></li> <br><br><li>Chaomin Shen<sup>1,&dagger;</sup></li> <li>Yaxin Peng<sup>3</sup></li><li>Dong Liu<sup>2</sup></li> <li>Feifei Feng<sup>2</sup></li> 
+<li>and Jian Tang<sup>2,&dagger;</sup></li> 
               
                 <br><br>
                     <!-- <a href="http://g.co/robotics">
@@ -76,6 +76,7 @@
                     <h5><sup>2</sup> Midea Group, China</h5>
                     <h5><sup>3</sup> Department of Mathematics, School of Science, Shanghai University, China</h5>
                     <h5> * Equal contribution.This work was done during Junjie Wen's, Minjie Zhu's, and Jinming Li's internship at Midea Group. </h5>
+                    <h5>Manuscript 3401 submitted to 2024 IEEE International Conference on Robotics and Automation (ICRA). Received September 15, 2023.</h5>
                 </ul>
             </div>
         </div>
@@ -91,23 +92,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://youtu.be/0sJjdxn5kcI">
+                            <a href="https://youtu.be/vjh1PAn13sA">
                                 <image src="img/youtube_icon.png" height="60px">
                                     <h4><strong>Video</strong></h4>
                                 </a>
                             </li>
-                            <!-- li>
-                                <a href="https://ai.googleblog.com/2021/04/multi-task-robotic-reinforcement.html">
-                                    <image src="img/google-ai-blog-small.png" height="60px">
-                                        <h4><strong>Blogpost</strong></h4>
-                                    </a>
-                                </li -->
-                                <!-- <li>
-                                    <a href="https://github.com/">
-                                        <image src="img/github.png" height="60px">
-                                            <h4><strong>Code</strong></h4>
-                                        </a>
-                                    </li> -->
                                 </ul>
                                 
                             </div>
@@ -161,11 +150,14 @@
                     instructions to boost the generalizability of robotic manipulation, emphasizing positional cues for objects in text structure.There are two key 
                     components to our OCI framework: 1) a fine-tuned MLLM that is adept at comprehending language and the environment, with the ability to 
                     correlate an object’s location to its identity, and 2) a feature reuse mechanism that leverages the features embedding from MLLM to 
-                    improve policy learning. The following section will address these two challenges in detail.
+                    improve policy learning. <br>
 
               
                 <image src="img/oci_framework.png" width="100%" height="auto">
-            
+                <p class="text-justify">
+                    Two examples of object-centric instruction augmentation for simulation and real robots, respectively. Given an initial instruction from the left figure, we augment them by providing the object’s absolute position and relative position to the robotics and obtain the action eventually.
+                </p>
+                <image src="img/example_method.png" width="100%" height="auto">
             
 
             </div>
@@ -206,33 +198,20 @@
         <p class="text-justify">
             Results from real-world experiments.In this study, we progressively removed the relative position (denoted as “w/o rel-pos”) and the absolute position (denoted as “w/o abs-pos”).
         </p>
-        <image src="img/result_real.png" width="100%" height="auto">
+        <img src="img/result_real.png" style="width: 60%; height: auto; display: block; margin: auto;">
             
      <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Citation
                 </h3>
                 <div class="form-group col-md-10 col-md-offset-1">
-                    <textarea id="bibtex" class="form-control" readonly="" style="display: none;">@inproceedings{huang2022inner,
-    title={Inner Monologue: Embodied Reasoning through Planning with Language Models},
-    author={Wenlong Huang and Fei Xia and Ted Xiao and Harris Chan and Jacky Liang and Pete Florence and Andy Zeng and Jonathan Tompson and Igor Mordatch and Yevgen Chebotar and Pierre Sermanet and Noah Brown and Tomas Jackson and Linda Luu and Sergey Levine and Karol Hausman and Brian Ichter},
+                    <textarea id="bibtex" class="form-control" readonly="" style="display: none;">@inproceedings{wen2023oci,
+    title={Object-Centric Instruction Augmentation for Robotic Manipulation},
+    author={Junjie Wen,Yichen Zhu,Minjie Zhu,Jinming Li,Zhiyuan Xu,Zhengping Che,Chaomin Shen,Yaxin Peng,Dong Liu,Feifei Feng, and Jian Tang},
     booktitle={arXiv preprint arXiv:2207.05608},
-    year={2022}
+    year={2023}
 }</textarea>
             </div>
      </div>
-
-     <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Acknowledgements
-                </h3>
-                <p class="text-justify">
-The authors would like to thank Kanishka Rao and Vincent Vanhoucke for valuable feedback and discussions. In addition, the authors would like to acknowledge the large team who built SayCan, upon which we construct our Kitchen Mobile Manipulation experiments.
-                    <br><br>
-                The website template was borrowed from <a href="http://jonbarron.info/">Jon Barron</a>.
-                </p>
-            </div>
-
-    </div>
 </body>
 </html>
