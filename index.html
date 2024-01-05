@@ -144,45 +144,21 @@
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-               
-                <h3>
-                    Video Walkthrough
-                </h3>
-                  <div class="text-center">
-                    <!-- <video id="v0" width="100%" playsinline loop controls>
-                        <source src="img/im_supp_video_compressed.mp4" type="video/mp4">
-                   </video> -->
-                    <div style="position:relative;padding-top:56.25%;">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/0sJjdxn5kcI" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-                </div>
-                </div>
-            
-            </div>
-        </div>
-
-
-
-
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
             	<br>
                 <h3>
-                    Approach
+                    Method
                 </h3>
                 <p class="text-justify">
-               Prior works have shown large language models (LLMs) demonstrate impressive planning capabilities for long-horizon embodied tasks,
-               given arbitrary language instructions. However, it has remained one-directional - the LLM blindly influences the agent and the
-               environment, but no feedback is routed back to the LLM. This issue is particularly prominent when an intermediate action fails
-               during execution, because the LLM is not informed with any feedback. In this work, formulate an <b>inner monologue</b> by continually
-               adding information from various sources of feedback into the language model prompts. While any textual feedback can be incorporated,
-               we focus our studies on three types of feedback: passive scene description, active scene description, and success detection. Passive
-               scene description describes any feedback that is consistently provided in a structured form, such as object recognition results.
-               Active scene description, on the other hand, describes any free-form questions that LLMs may ask and the corresponding unstructured answers provided by
-               a learned model (e.g. a VQA model) or a person. This can also be repurposed to inject human preference during plan generation. Success detection
-               refers to a binary feedback that indicates if the last action was successful, which is particularly useful in many long-horizon settings.
+                    Prior works have studied the use of pre-trained Vision-Language Models (VLM) for robotics. Some works use pre-trained VLM as instruction 
+                    encoder or visual encoder. These prioapproaches use VLMs for visual state representations, for object navigation, for high-level planning 
+                    or for providing supervision or success detection . For instance, SuccessVQA uses VLM to detect whether the behavior is successful. 
+                    LMNAV does long-horizon navigation through out- door scenes from natural language instruction. Voltron presents a language-conditioned 
+                    visual representation from human videos. CLIPort and MOO, which integrate pre-trained VLMs into end-to-end visuomotor manipulation policies. 
+                     RT-2 develop an end-to-end framework that outputs actions with images and instructions directly.<br>
+                    Unlike prior applications of foundational models to down- stream tasks like planning and navigation, our goal is to enhance language 
+                    instructions to boost the generalizability of robotic manipulation, emphasizing positional cues for objects in text structure.
 
               <div class="text-center">
                     <video id="v0" width="100%" playsinline loop controls muted autoplay>
