@@ -163,11 +163,9 @@
                     correlate an object’s location to its identity, and 2) a feature reuse mechanism that leverages the features embedding from MLLM to 
                     improve policy learning. The following section will address these two challenges in detail.
 
-              <div class="text-center">
+              
                 <image src="img/oci_framework.png" width="100%" height="auto">
-
-                </a>
-                </div>
+            
             
 
             </div>
@@ -177,19 +175,22 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Results
+                    Experiments
                 </h3>
 		<p class="text-justify">
-	In order to study how different sources of environment feedback can support a rich inner monologue that enables complex robotic control, we analyze diverse long-horizon manipulation and navigation tasks in simulation and in the real world. As Inner Monologue is not dependent on a specific LLM or a type of grounding feedback,
-we study different Inner Monologue implementations in three environments with different LLM planning methods and different sources of feedback from the environment. For more details about experiments, implementations, and the prompts used for LLM for each domain, please refer to the paper and the appendix.
+            Our experiments aim to answer the following questions: 1) Does our method enable better policy learning than using naive language instruction? 2) Is our method effective with real-world environments? We initiate our discussion by outlining the simulation environments tailored to address these queries. Subsequently, we present in-depth experimen- tal results that positively affirm answers to both questions.
 		</p>
 
         <h4>
-            Simulated Tabletop Rearrangement
+            Simulated Franka Kitchen Environment
         </h4>
         <p class="text-justify">
-            Given an unseen task instruction, we show that LLMs can not only generate sensible action plans as observed in previous works, but can also incorporate injected textual feedback of success detection and passive scene description. The video below shows one instantiation of using passive scene description as feedback (<i>Scene</i>). Specifically, the LLM first infers desired sub-tasks given the high-level instruction. Then, the scene description keeps track of the achieved sub-tasks after each step. Additionally, the LLM also generates chain-of-thought text about what remains to be achieved after each step. We demonstrate this can elicit complex replanning behaviors in tasks that require combinatorial state spaces (e.g., "put all blocks in bowls with matching colors", "stack all the blocks").
+            The example of Franka Kitchen for five tasks on two camera views.
         </p>
+        <p class="text-justify">
+            We compare our model with R3M, which is the state-of-the-art method and widely applicable method in Franka Kitchen. We also compare with BLIP-2, a SOTA vision-language model. We replace our MLLM with BLIP-2 in our method and retain the FRM(Feature Reuse Module).And results are shown in the following image.
+        </p>
+
 
         <div class="text-center">
                     <video id="v0" width="100%" playsinline loop controls autoplay muted>
