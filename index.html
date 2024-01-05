@@ -119,7 +119,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="text-center">
                     <video id="v0" width="100%" playsinline loop controls muted autoplay>
-                        <source src="img/im_teaser_compressed.mp4" type="video/mp4">
+                        <source src="img/icra2024_oci.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -132,9 +132,7 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-Recent works have shown how the reasoning capabilities of Large Language Models (LLMs) can be applied to domains beyond natural language processing, such as planning and interaction for robotics. These embodied problems require an agent to understand many semantic aspects of the world: the repertoire of skills available, how these skills influence the world, and how changes to the world map back to language. LLMs planning in embodied environments need to consider not just what skills to do, but also how and when to do them - answers that change over time in response to the agent’s own choices. 
-
-In this work, we investigate to what extent LLMs used in such embodied contexts can reason over sources of feedback provided through natural language, without any additional training. We propose that by leveraging environment feedback, LLMs are able to form an inner monologue that allows them to more richly process and plan in robotic control scenarios. We investigate a variety of sources of feedback, such as success detection, object recognition, scene description, and human interaction. We find that closed-loop language feedback significantly improves high level instruction completion on three domains, including simulated and real table top rearrangement tasks and long-horizon mobile manipulation tasks in a real kitchen environment.
+                    Humans interpret scenes by recognizing both the identities and positions of objects in their observations. For a robot to perform tasks such as “pick and place”, understanding both what the objects are and where they are located is crucial. While the former has been extensively discussed in the literature that uses the large language model to enrich the text descriptions, the latter remains underexplored. In this work, we introduce the Object-Centric Instruction Augmentation (OCI) framework. We utilize a Multi-modal Large Language Model (MLLM) to weave knowledge of object locations into natural language instruction, thus aiding the policy network in mastering actions for versatile manipulation. Additionally, we present a feature reuse mechanism to integrate the vision- language features from off-the-shelf pre-trained MLLM into policy networks. Through a series of simulated and real-world robotic tasks, we demonstrate that robotic manipulator imita- tion policies trained with our enhanced instructions outperform those relying solely on traditional language instructions.
                 </p>
 
                 <!-- <div class="text-center">
